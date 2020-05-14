@@ -2,16 +2,19 @@ package com.xjl.rx_result_x.bean;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
+
+import com.xjl.rx_result_x.RXResult;
 
 public class ActivityResult {
 
+    public int requestCode;
 
+    public int resultCode;
 
-    private int requestCode;
+    public Intent intent;
 
-    private int resultCode;
-
-    private Intent intent;
+    private Intent data;
 
     public ActivityResult(int requestCode, int resultCode, Intent intent) {
         this.requestCode = requestCode;
@@ -50,4 +53,23 @@ public class ActivityResult {
     public void setIntent(Intent intent) {
         this.intent = intent;
     }
+
+
+    public Bundle getRequestContextData() {
+        Bundle requestData = getRequestData();
+        if (requestData != null) {
+            return requestData.getBundle(RXResult.KEY_REQUEST_CONTEXT_DATA);
+        } else {
+            return null;
+        }
+    }
+
+    public Bundle getRequestData() {
+        if (data != null) {
+            return data.getBundleExtra(RXResult.KEY_REQUEST_DATA);
+        } else {
+            return null;
+        }
+    }
+
 }

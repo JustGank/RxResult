@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.xjl.app.MainActivity">
+        <activity android:name="com.xjl.app.main.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +17,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.steps.login.LoginActivity"/>
+        <activity android:name=".login.login.LoginActivity" />
+
+        <activity android:name=".login.auth.AuthActivity" />
+
+        <activity android:name=".login.register.RegisterActivity" />
+
+        <activity android:name=".login.pwdReset.PwdResetActivity" />
     </application>
 
 </manifest>
