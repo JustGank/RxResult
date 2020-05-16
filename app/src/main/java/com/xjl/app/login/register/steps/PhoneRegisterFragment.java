@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 
 public class PhoneRegisterFragment extends Fragment {
 
-
     View rootView;
 
     @Nullable
@@ -40,7 +39,7 @@ public class PhoneRegisterFragment extends Fragment {
     }
 
     public interface Callback {
-        void phoneInputCallback(String s1, String s2);
+        void phoneInputCallback(String phone, String session);
     }
 
 

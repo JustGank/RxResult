@@ -65,7 +65,7 @@ public class ProcessHelper {
     }
 
     public <T extends Fragment> T findOrCreateFragment(Class<T> fragmentClass) {
-        findOrCreateFragment(fragmentClass, this.activity);
+       return findOrCreateFragment(fragmentClass, this.activity);
     }
 
 
