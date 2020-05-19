@@ -3,16 +3,17 @@ package com.xjl.rx_result_x.fragment;
 
 import android.content.Intent;
 
+import com.xjl.rx_result_x.bean.ActivityResult;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-
-import com.xjl.rx_result_x.bean.ActivityResult;
-
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
 
 public class ActivityResultFragment extends Fragment {
+
+    private static final String TAG = "ActivityResultFragment";
 
     private final BehaviorSubject<ActivityResult> mActivityResultSubject = BehaviorSubject.create();
 
@@ -80,7 +81,7 @@ public class ActivityResultFragment extends Fragment {
 
     public static void insertActivityResult(FragmentActivity activity, ActivityResult activityResult) {
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        ActivityResultFragment fragment= (ActivityResultFragment) fragmentManager.findFragmentByTag(
+        ActivityResultFragment fragment = (ActivityResultFragment) fragmentManager.findFragmentByTag(
                 ActivityResultFragment.class.getCanonicalName());
         if (fragment == null) {
             fragment = new ActivityResultFragment();

@@ -3,12 +3,11 @@ package com.xjl.rx_result_x;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import com.xjl.rx_result_x.bean.ActivityResult;
 import com.xjl.rx_result_x.fragment.ActivityResultFragment;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import io.reactivex.rxjava3.core.Observable;
 
 public class RXResult {

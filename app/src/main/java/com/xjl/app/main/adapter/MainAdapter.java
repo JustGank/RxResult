@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.xjl.app.R;
 import com.xjl.app.main.bean.MainItemBean;
 
@@ -26,18 +27,21 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private LayoutInflater inflater;
 
+    PublishSubject<Integer> itemLikeClicks=null;
+
+    PublishSubject<Integer> itemCommentClicks=null;
 
     public MainAdapter(Activity activity) {
         this.activity = activity;
         this.inflater = this.activity.getLayoutInflater();
         list = new ArrayList<>();
-        list.add(new MainItemBean("电视剧西游记挣了多少钱？", R.drawable.t1, 10, 5, false));
-        list.add(new MainItemBean("史泰龙前妻宣布怀孕，与第5任老公生第5胎！网友：把史泰龙害好惨", R.drawable.t2, 5, 10, false));
-        list.add(new MainItemBean("细数女星结婚,时的伴娘服，阿娇最良心，Angelababy的最差劲", R.drawable.t3, 3, 35, false));
-        list.add(new MainItemBean("《放羊的星星》2018年启动重拍，主角人选大家还满意吗？", R.drawable.t4, 123, 4, false));
-        list.add(new MainItemBean("参加湖南卫视的《变形计》的孩子们现在都怎么样了？", R.drawable.t5, 0, 0, false));
-        list.add(new MainItemBean("易烊千玺高考前爆蓄须照，荷尔蒙爆表引迷妹尖叫：鼻血止不住了！", R.drawable.t6, 3, 0, false));
-        list.add(new MainItemBean("李亚鹏谈与王菲离婚眼含泪水，大半年才释然，但仍有最愧疚的人", R.drawable.t7, 19, 0, false));
+        list.add(new MainItemBean("猩红女巫.旺达，被无限宝石赋予宇宙秘能，一位颜值身材爆标女法师", R.drawable.t1, 19, 0, false));
+        list.add(new MainItemBean("钢铁侠，托尼.斯塔克，以凡人之躯，比肩神明，不知是他成就了战甲，还是战甲成就了他", R.drawable.t2, 10, 5, false));
+        list.add(new MainItemBean("美国队长，一位精神高尚的超级战士，人物形象几乎贯穿整个漫威电影宇宙", R.drawable.t3, 5, 10, false));
+        list.add(new MainItemBean("雷神.托尔，一名来自阿斯加德的中二王子，复联中既可以坑揍，又有输出的一位狠角色", R.drawable.t4, 3, 35, false));
+        list.add(new MainItemBean("绿巨人，浩克。非常收影迷喜爱的一位超级英雄，平常时是一位温文尔雅的博士，一但发怒，见什么都想砸了它，型象完全颠倒", R.drawable.t5, 123, 4, false));
+        list.add(new MainItemBean("黑寡妇，寡姐，颜值身材双双在线，神盾局高级特工，没有搞不定的情报", R.drawable.t6, 0, 0, false));
+        list.add(new MainItemBean("幻视，使用心灵宝石和贾维斯创造出来的生化人，并且具有独立人格", R.drawable.t7, 3, 0, false));
     }
 
     @NonNull
@@ -49,22 +53,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MainItemBean item = list.get(position);
-        holder.image.setImageResource(item.imageRes);
+
+        Glide.with(activity).load(item.imageRes).into(holder.image);
+
         holder.title.setText(item.title);
         holder.comment.setText(String.format("评论 %d", item.commentCount));
         holder.favor.setText(String.valueOf(item.favCount));
 
         holder.fav_icon.setImageResource(item.fav ? R.drawable.favorite : R.drawable.favorite_border);
 
-        holder.fav_icon.setOnClickListener(v -> itemLikeClicks.onNext(position));
+        holder.fav_icon.setOnClickListener(v ->{
+            itemLikeClicks.onNext(position);
+        } );
 
         holder.comment.setOnClickListener(v -> itemCommentClicks.onNext(position));
 
     }
 
-    PublishSubject<Integer> itemLikeClicks = PublishSubject.create();
 
-    PublishSubject<Integer> itemCommentClicks = PublishSubject.create();
 
     public void setClickListener(PublishSubject<Integer> itemLikeClicks, PublishSubject<Integer> itemCommentClicks) {
         this.itemLikeClicks = itemLikeClicks;
@@ -80,7 +86,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public MainItemBean getItem(int position) {
         return list.get(position);
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;

@@ -70,11 +70,14 @@ public class ProcessHelper {
 
 
     public void push(Fragment fragment) {
-        push(fragment, fragment.getClass().getCanonicalName());
+        push(fragment, fragment.getClass().getCanonicalName(),true);
     }
 
-    public void push(Fragment fragment, String tag) {
+    public void push(Fragment fragment,boolean addToBackStack){
+        push(fragment, fragment.getClass().getCanonicalName(),addToBackStack);
+    }
 
+    public void push(Fragment fragment, String tag,boolean addToBackStack) {
 
         List<Fragment> currentFragments = activity.getSupportFragmentManager().getFragments();
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
@@ -88,9 +91,10 @@ public class ProcessHelper {
         }
         transaction.add(frameLayoutId, fragment, tag);
         if (currentFragments.size() != 0) {
-            transaction
-                    .hide(currentFragments.get(currentFragments.size() - 1))
-                    .addToBackStack(tag);
+            transaction.hide(currentFragments.get(currentFragments.size() - 1));
+            if(addToBackStack){
+                transaction.addToBackStack(tag);
+            }
         }
         transaction.commit();
     }

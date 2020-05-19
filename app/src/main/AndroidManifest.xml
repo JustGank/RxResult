@@ -17,13 +17,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.login.LoginActivity" />
+        <activity android:name=".process.login.LoginActivity" />
 
-        <activity android:name=".login.auth.AuthActivity" />
+        <activity android:name=".process.auth.AuthActivity" />
 
-        <activity android:name=".login.register.RegisterActivity" />
+        <activity android:name=".process.register.RegisterActivity" />
 
-        <activity android:name=".login.pwdReset.PwdResetActivity" />
+        <activity android:name=".process.pwdReset.PwdResetActivity" />
+
+        <activity android:name=".common.CommentActivity" />
+
     </application>
 
 </manifest>
