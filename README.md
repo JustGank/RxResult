@@ -9,7 +9,7 @@ public void startActivityForResult( Intent intent ,int requestCode);
 
 public void onActivityResult(int requestCode, int resultCode, Intent data);
 ```
-封装为RxJava链式调用的形式,即请求和响应在一起，这样更容易对业务的整体流程进行理解（如：请求登录-》登录成功返回账户）:
+封装为RxJava链式调用的形式,即请求和响应在一起，这样更容易对业务的整体流程进行理解（如：请求注册-》注册成功返回账户）:
 
 ```java
  Observable.just(v).compose(RegisterActivity.register(this))
