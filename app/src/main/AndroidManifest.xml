@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xjl.app">
+    package="com.xjl.rxresult_x_demo">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.xjl.app.main.activity.MainActivity">
+        <activity android:name="com.xjl.rxresult_x_demo.main.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".process.login.LoginActivity" />
+        <activity android:name="com.xjl.rxresult_x_demo.process.login.LoginActivity" />
 
-        <activity android:name=".process.auth.AuthActivity" />
+        <activity android:name="com.xjl.rxresult_x_demo.process.auth.AuthActivity" />
 
-        <activity android:name=".process.register.RegisterActivity" />
+        <activity android:name="com.xjl.rxresult_x_demo.process.register.RegisterActivity" />
 
-        <activity android:name=".process.pwdReset.PwdResetActivity" />
+        <activity android:name="com.xjl.rxresult_x_demo.process.pwdReset.PwdResetActivity" />
 
-        <activity android:name=".common.CommentActivity" />
+        <activity android:name="com.xjl.rxresult_x_demo.common.CommentActivity" />
 
     </application>
 
