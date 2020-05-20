@@ -35,7 +35,9 @@ public void onActivityResult(int requestCode, int resultCode, Intent data);
 下面看下，采用一个Activity管理实现业务流程步骤的Fragment是**如何做到易维护与可复用的**。
 
 ### 2.1项目结构
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200520104232169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTA0NTE5OTA=,size_16,color_FFFFFF,t_70#pic_center)
+
 从项目结构中我们可以明显的看出，一个业务流程自己有一个包，包下面有一个steps包里面放置实现业务的Fragment,然后就是管理Fragment以及对外开放功能的Activity。
 
 **一个业务流程对应一个Activity,一个Activity管理若干个Fragment。**
