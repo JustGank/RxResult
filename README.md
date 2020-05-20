@@ -22,7 +22,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data);
 #### 而Demo部分主要展示了，如何基于RxResult对流程性业务进行封装，体现编程范式-如何优雅地构建易维护、可复用的 Android 业务流程。
 
 ## 二、如何体现易维护与可复用
-在日常的开发中，我们经常面临着一个业务流程由若干个步骤组成，然后将步骤整理输出成Activity。发起流程时，当我们需要这个流程的返回结果时，就会使用startActivityForResult()方法进行跳转请求。然后重写onActivityResult()方法等待回调。
+在日常的开发中，我们经常面临着一个业务流程由若干个步骤组成，然后将步骤整理输出成Activity。发起流程时，当我们需要这个流程的返回结果，就会使用startActivityForResult()方法进行跳转请求。然后重写onActivityResult()方法等待回调。
 
 例如：新闻类客户端发评论-》点击评论-》查看是否登录（未登录进入登录流程）-》查看是否实名认证（未认证进入认证流程）-》进入评论流程-》评论结束，评论数量+1
 
@@ -394,4 +394,3 @@ itemCommentClicks
 
 
  
-
